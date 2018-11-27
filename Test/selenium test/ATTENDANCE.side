@@ -1,0 +1,86 @@
+{
+  "id": "4bbe4151-f44e-4d96-a604-bfdbf8c3d4cb",
+  "version": "1.1",
+  "name": "ATTENDANCE",
+  "url": "http://localhost",
+  "tests": [{
+    "id": "7e4bbe05-c7e9-455f-a85f-649ff3c87c39",
+    "name": "ATTENDANCE",
+    "commands": [{
+      "id": "acf137ef-a680-4186-b9a5-a48199be2adb",
+      "comment": "",
+      "command": "open",
+      "target": "/erp_hr/attendance.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9dcbf152-8926-4858-b605-ebb49072504d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "550x695",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bb19eab6-1d71-49ab-985a-19b7402a340c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-tabs > li:nth-child(3) > a",
+      "targets": [
+        ["css=.nav-tabs > li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Attedance')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'attendance.php')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/ul/li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7440e9c0-8970-475e-8193-c0c392ae9f74",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-tabs > li:nth-child(3) > a",
+      "targets": [
+        ["css=.nav-tabs > li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Attedance')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'attendance.php')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/ul/li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cbcfbecd-49fd-4505-b0d9-a31821a57fd2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.del2 #\\<br\\ \\/\\>\\A\\<b\\>Notice\\<\\/b\\>\\3A\\ \\ Undefined\\ variable\\3A\\ id\\ in\\ \\<b\\>C\\3A\\\\xampp\\\\htdocs\\\\erp_hr\\\\attendance\\.php\\<\\/b\\>\\ on\\ line\\ \\<b\\>54\\<\\/b\\>\\<br\\ \\/\\>\\A",
+      "targets": [
+        ["css=.del2 #\\<br\\ \\/\\>\\A\\<b\\>Notice\\<\\/b\\>\\3A\\ \\ Undefined\\ variable\\3A\\ id\\ in\\ \\<b\\>C\\3A\\\\xampp\\\\htdocs\\\\erp_hr\\\\attendance\\.php\\<\\/b\\>\\ on\\ line\\ \\<b\\>54\\<\\/b\\>\\<br\\ \\/\\>\\A", "css:finder"],
+        ["xpath=(//a[@id='<br />\n<b>Notice</b>:  Undefined variable: id in <b>C:\\xampp\\htdocs\\erp_hr\\attendance.php</b> on line <b>54</b><br />\n'])[2]", "xpath:attributes"],
+        ["xpath=//table[@id='example']/tbody/tr[2]/td[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#delete2')]", "xpath:href"],
+        ["xpath=//tr[2]/td[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "46e5bed0-2acf-41c5-8795-22241c93cadc",
+      "comment": "",
+      "command": "click",
+      "target": "css=#delete2 > div.modal-footer > a.btn.btn-danger",
+      "targets": [
+        ["css=#delete2 > div.modal-footer > a.btn.btn-danger", "css"],
+        ["css=#delete2 .btn-danger", "css:finder"],
+        ["xpath=(//a[contains(text(),'YES')])[2]", "xpath:link"],
+        ["xpath=//div[@id='delete2']/div[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'delete_att.php<br />\n<b>Notice</b>:  Undefined variable: id in <b>C:\\xampp\\htdocs\\erp_hr\\delete_attendance.php</b> on line <b>11</b><br />\n?id=')])[2]", "xpath:href"],
+        ["xpath=//tr[2]/td[6]/div/div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "eab31441-9c45-4e53-879a-a6396109bd5a",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["7e4bbe05-c7e9-455f-a85f-649ff3c87c39"]
+  }],
+  "urls": ["http://localhost/"],
+  "plugins": []
+}
