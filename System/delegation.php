@@ -17,9 +17,7 @@
 
                 <thead>
                     <tr>
-                        <th>User</th>
                         <th>Name</th>
-                        <th>Department</th>
                         <th>Position</th>                                 
                         <th>Type</th>                                 
                         <th>Start Date</th> 
@@ -31,34 +29,22 @@
 
                     <?php
                     $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
-                    $user_query = mysqli_query($conn,"select * from members where status='Approved' AND NOT type='' ")or die(mysql_error());
+                    $user_query = mysqli_query($conn,"select * from employees where NOT status=' ' ")or die(mysql_error());
                     while ($row = mysqli_fetch_array($user_query)) {
-                        $id = $row['member_id'];
+                        $id = $row['id'];
                         ?>
                         <tr class="del<?php echo $id ?>">
-                            <td><?php
-                            if ($row['image']=="") {
-                                echo "
-                                <img src='img/profile 1.png' alt='Profile Picture' style='width:50px; height:50px;'>
-                                ";
-                            }else{
-                                echo "
-                                <img src='img/".$row['image']."' style='width:50px; height:50px;'>
-                                ";
-
-                            }
-
-                            ?></td>
-                            <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['department']; ?></td> 
-                            <td><?php echo $row['position']; ?></td>
-                            <td><?php echo $row['type']; ?></td> 
+                            <td>
+                            <?php echo $row['firstname']." ".$row['lastname'];; ?>
+                            </td> 
+                            <td><?php echo $row['position_id']; ?></td>
+                            <td><?php echo $row['status']; ?></td> 
                             <td><?php echo $row['start_date']; ?></td>
                             <td><?php echo $row['end_date']; ?></td> 
                             <td width="100">
                                 <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 <a rel="tooltip"  title="Edit" id="e<?php echo $id; ?>" href="#edit<?php echo $id; ?>" data-toggle="modal" class="btn btn-success"><i class="fa fa-wrench"></i></a>
-                            <?php include('edit_cat.php'); ?>
+                            <?php include('edit_delegation.php'); ?>
                             </td>
                         </tr>
 <?php } ?>

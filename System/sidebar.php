@@ -33,7 +33,7 @@
     <li><a href="leaves.php" style="color: black;"><i class="fa fa-book"></i>&nbsp;Leaves</a></li>
     <li><a href="training.php" style="color: black;"><i class="fa fa-thumbs-up"></i>&nbsp;Training</a></li>
     <li><a href="delegation.php" style="color: black;"><i class="fa fa-user-times"></i>&nbsp;Delagation</a></li>
-    <li><a href="files.php" style="color: black;"><i class="fa fa-file"></i>&nbsp;Files</a></li>
+    <!-- <li><a href="files.php" style="color: black;"><i class="fa fa-file"></i>&nbsp;Files</a></li> -->
     <li><a href="user.php" style="color: black;"><i class="fa fa fa-user-secret"></i>&nbsp;User Accounts</a></li>
     <li><a href="members.php" style="color: black;"><i class="fa fa-users"></i>&nbsp;Employee</a></li>
 </ul>

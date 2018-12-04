@@ -18,7 +18,6 @@
                 <thead>
                     <tr>
                         <th>Employee ID</th>
-                        <th>Employee</th>
                         <th>Location for Training</th>
                         <th>Start Date</th>
                         <th>End Date</th>
@@ -35,15 +34,15 @@
                         $id = $row_train['train_id'];
                         ?>
                         <tr class="del<?php echo $id ?>">
-                            <td><?php echo $row_train['employee']; ?></td>
+                            <td><?php echo $row_train['employee_id']; ?></td>
                             <td><?php echo $row_train['training_location']; ?></td>
                             <td><?php echo $row_train['start_date']; ?></td>
                             <td><?php echo $row_train['end_date']; ?></td>
-                            <td><?php echo $row_train['time']; ?></td>
+                            <td><?php echo $row_train['start_time']."-".$row_train['end_time']; ?></td>
                             <td width="100">
                                 <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                <a rel="tooltip"  title="Edit" id="e<?php echo $id; ?>" href="#edit<?php echo $id; ?>" data-toggle="modal" class="btn btn-success"><i class="fa fa-wrench"></i></a>
-                            <?php include('edit_cat.php'); ?>
+                                <a rel="tooltip"  title="Edit" id="e<?php echo $id; ?>" href="#edit<?php echo $id; ?>" data-toggle="modal" class="btn btn-success"><i class="fa fa-edit"></i></a>
+                            <?php include('edit_training.php'); ?>
                             </td>
                         </tr>
 <?php } ?>
@@ -58,7 +57,7 @@
                         if (confirm("Are you sure you want to delete this Data?")) {
                             $.ajax({
                                 type: "POST",
-                                url: "delete_cat.php",
+                                url: "delete_train.php",
                                 data: ({id: id}),
                                 cache: false,
                                 success: function(html) {
@@ -71,6 +70,7 @@
                     });
                 });
             </script>
+
 
         </div>
     </div>

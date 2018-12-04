@@ -17,10 +17,9 @@
 
                 <thead>
                     <tr>
-                        <th>User</th>
-                        <th>Department</th>
-                        <th>Position</th>
-                        <th>Name</th>                                 
+                        
+                        <th>Name</th>
+                        <th>Position</th>                                 
                         <th>Email</th>                                 
                         <th>Contact</th> 
                         <th>Address</th>                                
@@ -33,12 +32,12 @@
 
                     <?php
                     $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
-                    $user_query = mysqli_query($conn,"select * from members where status='Approved' ")or die(mysql_error());
+                    $user_query = mysqli_query($conn,"select * from employees where NOT employee_id=' ' ")or die(mysql_error());
                     while ($row = mysqli_fetch_array($user_query)) {
-                        $id = $row['member_id'];
+                        $id = $row['id'];
                         ?>
                         <tr class="del<?php echo $id ?>">
-                            <td><?php
+                            <td><!-- <?php
                             if ($row['image']=="") {
                                 echo "
                                 <img src='img/profile 1.png' alt='Profile Picture' style='width:50px; height:50px;'>
@@ -50,21 +49,49 @@
 
                             }
 
-                            ?></td>
-                            <td><?php echo $row['department']; ?></td>
-                            <td><?php echo $row['position']; ?></td>
-                            <td><?php echo $row['name']; ?></td> 
-                            <td><?php echo $row['email']; ?></td> 
-                            <td><?php echo $row['contact']; ?></td>
-                            <td><?php echo $row['address']; ?></td> 
-                            <td><?php echo $row['bday']; ?></td> 
-                            <td><?php echo $row['gender']; ?></td> 
-                            <td width="50">
-                                <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-
+                            ?> -->
+                                 <?php echo $row['firstname']." ".$row['lastname'];; ?>
                             </td>
-                        <?php include('toolttip_edit_delete.php'); ?>
+                            <td><?php echo $row['position_id']; ?></td>
+                            <td><?php echo $row['email']; ?></td> 
+                            <td><?php echo $row['contact_info']; ?></td>
+                            <td><?php echo $row['address']; ?></td> 
+                            <td><?php echo $row['birthdate']; ?></td> 
+                            <td><?php echo $row['gender']; ?></td> 
+                            <td width="100">
+                                <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#viewrecord<?php echo $row['employee_id'];?>">
+                                <i class="fa fa-book"></i></button>
+                            </td>
                         </tr>
+
+                        <div class="modal fade" id="viewrecord<?php echo $row['employee_id'];?>">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                
+                                <!-- Modal Header -->
+                                <div class="modal-header" style='color:white; background-color: rgb(15, 15, 87);'>
+                                  Record of Attendance every 15 days
+                                  <button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
+                                </div>
+                                
+                                <!-- Modal body -->
+                                <form method="post">
+                                <div class="modal-body">
+                                    
+                                </div>
+                                
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button class="btn" data-dismiss="modal" aria-hidden="true">&nbsp;Cancel</button>
+                                    <a href="delete_cart.php<?php echo '?id='.$id;  ?>" class="btn btn-success">&nbsp;Process</a>
+                                  
+                                </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+
                         <?php } ?>
 
                 </tbody>

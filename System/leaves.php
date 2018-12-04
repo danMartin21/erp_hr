@@ -34,7 +34,7 @@
                         $id = $row_lev['id'];
                         $emp_id = $row_lev['employee_id'];
 
-                        $member_query = mysqli_query($conn,"select * from members where member_id = '$emp_id'")or die(mysql_error());
+                        $member_query = mysqli_query($conn,"select * from employees where employee_id = '$emp_id'")or die(mysql_error());
                         $member_row = mysqli_fetch_array($member_query);
                         $name=$member_row['name'];
                         ?>

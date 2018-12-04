@@ -9,28 +9,16 @@
     </div>
     <div class="modal-body">
         <form class="form-horizontal" method="POST">
-            <div class="control-group">
-                <label class="control-label" for="inputEmail">Department</label>
-                <div class="controls">
-                    <input type="text" name="dep" id="inputEmail" placeholder="Location..." required>
-                </div>
-            </div>
-            <div class="control-group">
+             <div class="control-group">
                 <label class="control-label" for="inputEmail">Employee ID</label>
                 <div class="controls">
                     <input type="text" name="emp_id" id="inputEmail" placeholder="Employee..." required>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="inputEmail">Employee Name</label>
-                <div class="controls">
-                    <input type="text" name="emp_name" id="inputEmail" placeholder="Employee..." required>
-                </div>
-            </div>
-            <div class="control-group">
                 <label class="control-label" for="inputEmail">Type</label>
                 <div class="controls">
-                    <input type="radio" id="show" name="type" style="margin-bottom: 5px;">Temporary <input id="hide" style="margin-bottom: 5px;" type="radio" name="type">Permanent
+                    <input type="radio" id="show" name="type" value="Temporary" style="margin-bottom: 5px;">Temporary <input id="hide" style="margin-bottom: 5px;" type="radio" name="type" value="Permanent">Permanent
                 </div>
             </div>
 
@@ -64,9 +52,12 @@
 <?php
 $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
 if (isset($_POST['dele'])) {
-    $cat = $_POST['cat'];
+    $emp_id = $_POST['emp_id'];
+    $type=$_POST['type'];
+    $sdate=$_POST['sdate'];
+    $edate=$_POST['edate'];
 
-    mysqli_query($conn,"insert into training (employee_id,date_start,date_end) values('$cat')")or die(mysqli_error($conn));
+    mysqli_query($conn,"UPDATE employees set status='$type' , start_date='$sdate' , end_date='$edate' where employee_id = '$emp_id' ")or die(mysqli_error($conn));
     ?>
     <script>
         window.location = "delegation.php";

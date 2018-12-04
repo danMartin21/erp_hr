@@ -17,7 +17,6 @@
                 <thead>
                     <tr>
                         <th>Employee ID</th>
-                        <th>Employee</th>
                         <th>Time_In</th>
                         <th>Time_Out</th>                                                                 
                         <th>Date</th>
@@ -28,22 +27,21 @@
 
                     <?php
                     $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
-                    $user_query = mysqli_query($conn,"select * from attedance")or die(mysql_error());
+                    $user_query = mysqli_query($conn,"select * from attendance")or die(mysql_error());
                     while ($row = mysqli_fetch_array($user_query)) {
-                        $att_id = $row['att_id'];
-                        $member_id = $row['member_id'];
+                        $att_id = $row['id'];
+                        $member_id = $row['employee_id'];
                         $time_in = $row['time_in'];
                         $time_out=$row['time_out'];
                         $date=$row['date'];
                         /* member query  */
-                        $member_query = mysqli_query($conn,"select * from members where member_id = '$member_id'")or die(mysql_error());
+                        $member_query = mysqli_query($conn,"select * from employees where employee_id = '$member_id'")or die(mysql_error());
                         $member_row = mysqli_fetch_array($member_query);
-                        $name=$member_row['name'];
+                        $name=$member_row['name']." ".$member_row['lastname'];
                         ?>
 
                         <tr class="del<?php echo $att_id ?>">
                             <td data-target="number"><?php echo $member_id; ?></td>
-                            <td data-target="name"><?php echo $name; ?></td>
                             <td data-target="contact_no"><?php echo $time_in ?></td>
                             <td data-target="date"><?php echo $time_out?></td> 
                             <td data-target="service"><?php echo $date ?></td>   

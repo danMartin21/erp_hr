@@ -9,22 +9,10 @@
     </div>
     <div class="modal-body">
         <form class="form-horizontal" method="POST">
-            <div class="control-group">
-                <label class="control-label" for="inputEmail">Department</label>
-                <div class="controls">
-                    <input type="text" name="dep" id="inputEmail" placeholder="Location..." required>
-                </div>
-            </div>
-            <div class="control-group">
+             <div class="control-group">
                 <label class="control-label" for="inputEmail">Employee ID</label>
                 <div class="controls">
                     <input type="text" name="emp_id" id="inputEmail" placeholder="Employee..." required>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="inputEmail">Employee</label>
-                <div class="controls">
-                    <input type="text" name="lo" id="inputEmail" placeholder="Employee..." required>
                 </div>
             </div>
             <div class="control-group">
