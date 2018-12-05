@@ -18,7 +18,6 @@
                 <thead>
                     <tr>
                         <th>Employee ID</th>
-                        <th>Employee</th>
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Status</th>                            
@@ -36,11 +35,9 @@
 
                         $member_query = mysqli_query($conn,"select * from employees where employee_id = '$emp_id'")or die(mysql_error());
                         $member_row = mysqli_fetch_array($member_query);
-                        $name=$member_row['name'];
                         ?>
                         <tr class="del<?php echo $id ?>">
                             <td><?php echo $row_lev['employee_id']; ?></td>
-                            <td><?php echo $name;?></td>
                             <td><?php echo $row_lev['date_start']; ?></td>
                             <td><?php echo $row_lev['date_end']; ?></td>
                             <td><?php echo $row_lev['status']; ?></td>

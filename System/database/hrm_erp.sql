@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2018 at 09:12 AM
+-- Generation Time: Dec 05, 2018 at 10:21 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -62,8 +62,7 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`id`, `employee_id`, `date`, `time_in`, `status`, `time_out`, `num_hr`) VALUES
-(1, 5, '2018-12-02', '09:44:19', 1, '09:46:50', 0.033333333333333),
-(3, 5, '2018-12-03', '13:34:51', 0, '00:00:00', 0);
+(5, 5, '2018-12-04', '20:17:14', 0, '21:43:13', 3.2833333333333);
 
 -- --------------------------------------------------------
 
@@ -85,6 +84,7 @@ CREATE TABLE `employees` (
   `gender` varchar(10) NOT NULL,
   `position_id` int(11) NOT NULL,
   `schedule_id` int(11) NOT NULL,
+  `Approved` text NOT NULL,
   `photo` varchar(200) NOT NULL,
   `created_on` date NOT NULL,
   `status` text NOT NULL,
@@ -96,8 +96,9 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`id`, `employee_id`, `firstname`, `lastname`, `skills`, `edu_attain`, `address`, `email`, `birthdate`, `contact_info`, `gender`, `position_id`, `schedule_id`, `photo`, `created_on`, `status`, `start_date`, `end_date`) VALUES
-(5, 'LPH619703524', 'Jay-r', 'Raman', '', '', 'Brgy. Wawa', '', '2018-10-01', '09000000000', 'Male', 4, 1, '', '2018-10-08', 'Temporary', '2018-12-05', '2018-12-29');
+INSERT INTO `employees` (`id`, `employee_id`, `firstname`, `lastname`, `skills`, `edu_attain`, `address`, `email`, `birthdate`, `contact_info`, `gender`, `position_id`, `schedule_id`, `Approved`, `photo`, `created_on`, `status`, `start_date`, `end_date`) VALUES
+(5, 'LPH619703524', 'Jay-r', 'Raman', '', '', 'Brgy. Wawa', '', '2018-10-01', '09000000000', 'Male', 4, 1, '', '', '2018-10-08', 'Permanent', '0000-00-00', '0000-00-00'),
+(6, '', 'gilbert', 'simon', '', '', '', '', '0000-00-00', '', '', 0, 0, 'Yes', '', '0000-00-00', '', '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -107,9 +108,10 @@ INSERT INTO `employees` (`id`, `employee_id`, `firstname`, `lastname`, `skills`,
 
 CREATE TABLE `leaves` (
   `id` int(255) NOT NULL,
-  `employee_id` int(255) NOT NULL,
+  `employee_id` text NOT NULL,
   `date_start` date NOT NULL,
   `date_end` date NOT NULL,
+  `reason` text NOT NULL,
   `status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -148,15 +150,16 @@ CREATE TABLE `training` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `start_time` time NOT NULL,
-  `end_time` time NOT NULL
+  `end_time` time NOT NULL,
+  `status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `training`
 --
 
-INSERT INTO `training` (`train_id`, `employee_id`, `training_location`, `start_date`, `end_date`, `start_time`, `end_time`) VALUES
-(4, 'LPH619703524', 'SutherLand', '2018-12-18', '2018-12-21', '07:00:00', '17:00:00');
+INSERT INTO `training` (`train_id`, `employee_id`, `training_location`, `start_date`, `end_date`, `start_time`, `end_time`, `status`) VALUES
+(4, 'LPH619703524', 'SutherLand', '2018-12-18', '2018-12-21', '07:00:00', '17:00:00', '');
 
 --
 -- Indexes for dumped tables
@@ -212,19 +215,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `leaves`
 --
 ALTER TABLE `leaves`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `training`

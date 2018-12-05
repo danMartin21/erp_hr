@@ -22,9 +22,9 @@
 $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
 if (isset($_POST['edit'])) {
 
-    $emp_id=$_POST['id'];
+    $id=$_POST['id'];
 
-    mysqli_query($conn,"update members set status='Approved' where member_id='$emp_id'")or die(mysqli_error($conn));
+    mysqli_query($conn,"update employees set Approved='Yes' where id='$id'")or die(mysqli_error($conn));
     ?>
     <script>
         window.location = "hires.php";

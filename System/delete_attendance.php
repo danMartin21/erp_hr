@@ -5,7 +5,7 @@
 
 </div>
 <div class="modal-body">
-<center><p>Are you sure you want to delete this item?</p></center>
+<center><p>Are you sure you want to delete this attendance?</p></center>
 </div>
 <div class="modal-footer">
 <a href="delete_att.php<?php echo '?id='.$id;  ?>" class="btn btn-danger"><i class="icon-check icon-large"></i>&nbsp;YES</a>

@@ -17,8 +17,8 @@
 
                 <thead>
                     <tr>
-                        <th>User</th>
-                        <th>Name</th>                                 
+                        <th>Name</th>
+                        <th>Position</th>                                 
                         <th>Email</th>                                 
                         <th>Contact</th> 
                         <th>Address</th>                                
@@ -33,32 +33,22 @@
                     $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
                     $user_query = mysqli_query($conn,"select * from employees where employee_id=' ' ")or die(mysql_error());
                     while ($row = mysqli_fetch_array($user_query)) {
-                        $id = $row['member_id'];
+                        $id=$row['id'];
                         ?>
                         <tr class="del<?php echo $id ?>">
-                            <td><?php
-                            if ($row['image']=="") {
-                                echo "
-                                <img src='img/profile 1.png' alt='Profile Picture' style='width:50px; height:50px;'>
-                                ";
-                            }else{
-                                echo "
-                                <img src='img/".$row['image']."' style='width:50px; height:50px;'>
-                                ";
-
-                            }
-
-                            ?></td>
-                            <td><?php echo $row['name']; ?></td> 
+                            <td><?php echo $row['firstname']." ".$row['lastname'];; ?></td>
+                            <td><?php echo $row['position_id'];?></td> 
                             <td><?php echo $row['email']; ?></td> 
-                            <td><?php echo $row['contact']; ?></td>
+                            <td><?php echo $row['contact_info']; ?></td>
                             <td><?php echo $row['address']; ?></td> 
-                            <td><?php echo $row['bday']; ?></td> 
+                            <td><?php echo $row['birthdate']; ?></td> 
                             <td><?php echo $row['gender']; ?></td> 
-                            <td width="100">
+                            <td width="150">
                             <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             <a rel="tooltip"  title="Approve" id="e<?php echo $id; ?>" href="#app<?php echo $id; ?>" data-toggle="modal" class="btn btn-info"><i class="fa fa-check"></i></a>
                             <?php include('approve_hires.php'); ?>
+                            <a rel="tooltip"  title="Edit" id="e<?php echo $id; ?>" href="#edit<?php echo $id; ?>" data-toggle="modal" class="btn btn-success"><i class="fa fa-wrench"></i></a>
+                            <?php include('edit_hires.php'); ?>
                             </td>
                         <?php include('toolttip_edit_delete.php'); ?>
                         </tr>
@@ -71,7 +61,7 @@
                 $(document).ready(function() {
                     $('.btn-danger').click(function() {
                         var id = $(this).attr("id");
-                        if (confirm("Are you sure you want to delete this Member?")) {
+                        if (confirm("Are you sure you want to delete this employee?")) {
                             $.ajax({
                                 type: "POST",
                                 url: "delete_new.php",

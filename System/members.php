@@ -17,7 +17,6 @@
 
                 <thead>
                     <tr>
-                        
                         <th>Name</th>
                         <th>Position</th>                                 
                         <th>Email</th>                                 
