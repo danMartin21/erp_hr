@@ -1,0 +1,35 @@
+{
+  "id": "6720ddee-1987-4753-ac38-1d978a8cff5f",
+  "version": "1.1",
+  "name": "leave test",
+  "url": "http://localhost.",
+  "tests": [{
+    "id": "59a9963f-e292-423e-bd08-da78d2025b8d",
+    "name": "leaves",
+    "commands": [{
+      "id": "ef78e7fd-0a14-44d9-8713-0abaa2ecd641",
+      "comment": "",
+      "command": "open",
+      "target": "/ERP%20System/leaves.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "35e2cfd7-8493-4108-82ed-fe1d66c63510",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x744",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "b3b90522-1a2f-4066-bf92-7441f2fed75f",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["59a9963f-e292-423e-bd08-da78d2025b8d"]
+  }],
+  "urls": ["http://localhost./"],
+  "plugins": []
+}
