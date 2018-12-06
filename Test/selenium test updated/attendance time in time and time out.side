@@ -1,0 +1,136 @@
+{
+  "id": "8c0bfd19-b668-45e5-8cf4-f9a97fc31396",
+  "version": "1.1",
+  "name": "attendance time in time and time out",
+  "url": "http://localhost",
+  "tests": [{
+    "id": "0b94057d-e442-427d-b778-0ccb69b063e4",
+    "name": "time in & time out (attendance)",
+    "commands": [{
+      "id": "f611873c-34eb-42db-980b-9bd613042a9d",
+      "comment": "",
+      "command": "open",
+      "target": "/ERP%20System/attendance/updated/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0e799b6b-ba41-4719-b65a-e14779e930b2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "550x706",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1acd4cd3-03af-4ea4-981f-e9b7ea6e6a14",
+      "comment": "",
+      "command": "click",
+      "target": "id=employee",
+      "targets": [
+        ["id=employee", "id"],
+        ["name=employee", "name"],
+        ["css=#employee", "css"],
+        ["css=#employee", "css:finder"],
+        ["xpath=//input[@id='employee']", "xpath:attributes"],
+        ["xpath=//form[@id='attendance']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "26141f9d-c0b3-436b-a27d-ab58706cf6e4",
+      "comment": "",
+      "command": "click",
+      "target": "id=employee",
+      "targets": [
+        ["id=employee", "id"],
+        ["name=employee", "name"],
+        ["css=#employee", "css"],
+        ["css=#employee", "css:finder"],
+        ["xpath=//input[@id='employee']", "xpath:attributes"],
+        ["xpath=//form[@id='attendance']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e51dc916-7abf-4296-8483-5e62bbb3eea5",
+      "comment": "",
+      "command": "type",
+      "target": "id=employee",
+      "targets": [
+        ["id=employee", "id"],
+        ["name=employee", "name"],
+        ["css=#employee", "css"],
+        ["css=#employee", "css:finder"],
+        ["xpath=//input[@id='employee']", "xpath:attributes"],
+        ["xpath=//form[@id='attendance']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "LPH619703524"
+    }, {
+      "id": "caec763b-66cf-4ff8-82a1-4f805408a6ff",
+      "comment": "",
+      "command": "click",
+      "target": "name=signin",
+      "targets": [
+        ["name=signin", "name"],
+        ["css=button[name=\"signin\"]", "css"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@name='signin']", "xpath:attributes"],
+        ["xpath=//form[@id='attendance']/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f14a144-706f-4009-9b63-d57234c8d7f8",
+      "comment": "",
+      "command": "click",
+      "target": "name=signin",
+      "targets": [
+        ["name=signin", "name"],
+        ["css=button[name=\"signin\"]", "css"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@name='signin']", "xpath:attributes"],
+        ["xpath=//form[@id='attendance']/div[3]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "69ef5711-ce08-48e1-a4fa-97e5e2bd3877",
+      "comment": "",
+      "command": "click",
+      "target": "name=status",
+      "targets": [
+        ["name=status", "name"],
+        ["css=select[name=\"status\"]", "css"],
+        ["css=.form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//select[@name='status']", "xpath:attributes"],
+        ["xpath=//form[@id='attendance']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d9f0d1a-8a10-484a-ba12-e3bd8ba32ed2",
+      "comment": "",
+      "command": "click",
+      "target": "name=status",
+      "targets": [
+        ["name=status", "name"],
+        ["css=select[name=\"status\"]", "css"],
+        ["css=.form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//select[@name='status']", "xpath:attributes"],
+        ["xpath=//form[@id='attendance']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "ef95b6ff-0201-48cf-969a-8aa71b30de6a",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["0b94057d-e442-427d-b778-0ccb69b063e4"]
+  }],
+  "urls": ["http://localhost/"],
+  "plugins": []
+}
