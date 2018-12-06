@@ -29,7 +29,7 @@
                     $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
                     $user_query = mysqli_query($conn,"select * from attendance")or die(mysql_error());
                     while ($row = mysqli_fetch_array($user_query)) {
-                        $att_id = $row['id'];
+                        $id = $row['id'];
                         $member_id = $row['employee_id'];
                         $time_in = $row['time_in'];
                         $time_out=$row['time_out'];
@@ -40,7 +40,7 @@
                         $name=$member_row['name']." ".$member_row['lastname'];
                         ?>
 
-                        <tr class="del<?php echo $att_id ?>">
+                        <tr class="del<?php echo $id ?>">
                             <td data-target="number"><?php echo $member_id; ?></td>
                             <td data-target="contact_no"><?php echo $time_in ?></td>
                             <td data-target="date"><?php echo $time_out?></td> 
@@ -49,7 +49,7 @@
 
                                 <?php
                                 ?>
-                                <a href="#delete<?php echo $att_id ?>" data-toggle="modal" rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 <?php include('delete_attendance.php'); ?> 
                             </td>
                         <?php include('toolttip_edit_delete.php'); ?>
@@ -59,6 +59,26 @@
                 </tbody>
             </table>
 
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('.btn-danger').click(function() {
+                        var id = $(this).attr("id");
+                        if (confirm("Are you sure you want to delete this attendance?")) {
+                            $.ajax({
+                                type: "POST",
+                                url: "delete_att.php",
+                                data: ({id: id}),
+                                cache: false,
+                                success: function(html) {
+                                    $(".del" + id).fadeOut('slow');
+                                }
+                            });
+                        } else {
+                            return false;
+                        }
+                    });
+                });
+            </script>
 
 
         </div>

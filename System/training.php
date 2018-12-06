@@ -17,12 +17,14 @@
 
                 <thead>
                     <tr>
-                        <th>Employee ID</th>
-                        <th>Location for Training</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                        <th>Time</th>                            
-                        <th>Action</th>
+
+                        <th><center>Employee ID</center></th>
+                        <th><center>Location for Training</center></th>
+                        <th><center>Start Date</center></th>
+                        <th><center>End Date</center></th>
+                        <th><center>Time</center></th>
+                        <th><center>Worked Day</center></th>                            
+                        <th><center>Action</center></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,12 +41,22 @@
                             <td><?php echo $row_train['start_date']; ?></td>
                             <td><?php echo $row_train['end_date']; ?></td>
                             <td><?php echo $row_train['start_time']."-".$row_train['end_time']; ?></td>
-                            <td width="100">
+                            <td><?php echo $row_train['status'];?></td>
+                            <td width="200">
                                 <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 <a rel="tooltip"  title="Edit" id="e<?php echo $id; ?>" href="#edit<?php echo $id; ?>" data-toggle="modal" class="btn btn-success"><i class="fa fa-edit"></i></a>
+                                <a rel="tooltip" type="button" name="accept" title="Accept" id="e<?php echo $id; ?>" class="btn btn-info"><i class="fa fa-check"></i></a>
+                                <a rel="tooltip" type="button" name="denied" title="Denied" id="e<?php echo $id; ?>" class="btn btn-warning">X<i class="fa fa-incorrect"></i></a>
                             <?php include('edit_training.php'); ?>
                             </td>
                         </tr>
+                        <?php
+                        if (isset($_POST['accept'])) {
+                        
+                        }elseif (isset($_POST['denied'])) {
+                            # code...
+                        }
+                        ?>
 <?php } ?>
 
                 </tbody>

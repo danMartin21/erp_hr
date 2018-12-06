@@ -57,12 +57,22 @@ if (isset($_POST['dele'])) {
     $sdate=$_POST['sdate'];
     $edate=$_POST['edate'];
 
-    mysqli_query($conn,"UPDATE employees set status='$type' , start_date='$sdate' , end_date='$edate' where employee_id = '$emp_id' ")or die(mysqli_error($conn));
+    $q = "SELECT * FROM employees WHERE employee_id='$emp_id' ";
+    $res = mysqli_query($conn,$q)or die(mysql_error());
+    $num_row = mysqli_num_rows($res);
+    $row = mysqli_fetch_array($res);
+
+    if( $num_row > 0 ) {    
     ?>
-    <script>
-        window.location = "delegation.php";
-    </script>
+    <script>alert('Your delegation is successfully save!!'); window.location='delegation.php'</script>;
     <?php
+    mysqli_query($conn,"UPDATE employees set status='$type' , start_date='$sdate' , end_date='$edate' where employee_id = '$emp_id' ")or die(mysqli_error($conn)); 
+    }
+    else{ ?>
+    <script>alert('Employee ID Does Not Exist!!'); window.location='delegation.php'</script>;
+    <?php 
+    }
+
 }
 ?>
 

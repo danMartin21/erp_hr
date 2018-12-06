@@ -59,7 +59,7 @@
                         if (confirm("Are you sure you want to delete this Data?")) {
                             $.ajax({
                                 type: "POST",
-                                url: "delete_cat.php",
+                                url: "delete_dele.php",
                                 data: ({id: id}),
                                 cache: false,
                                 success: function(html) {

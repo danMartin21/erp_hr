@@ -1,6 +1,6 @@
 <?php
 include('dbcon.php');
-$get_id = $_GET['id'];
-mysqli_query($conn,"delete from attendance where att_id = '$get_id' ")or die(mysql_error());
-header('location:schedule.php');
+$id = $_POST['id'];
+mysqli_query($conn,"DELETE from attendance where id = '$id' ")or die(mysql_error());
+header('location:training.php');
 ?>
