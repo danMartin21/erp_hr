@@ -43,7 +43,7 @@
                             <td><?php echo $row['end_date']; ?></td> 
                             <td width="100">
                                 <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                <a rel="tooltip"  title="Edit" id="e<?php echo $id; ?>" href="#edit<?php echo $id; ?>" data-toggle="modal" class="btn btn-success"><i class="fa fa-wrench"></i></a>
+                                <a rel="tooltip"  title="Edit" id="e<?php echo $id; ?>" href="#edit<?php echo $id; ?>" data-toggle="modal" class="btn btn-success"><i class="fa fa-edit"></i></a>
                             <?php include('edit_delegation.php'); ?>
                             </td>
                         </tr>

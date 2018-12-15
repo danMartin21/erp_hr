@@ -22,8 +22,7 @@
                         <th>Email</th>                                 
                         <th>Contact</th> 
                         <th>Address</th>                                
-                        <th>Birthday</th>                                 
-                        <th>Gender</th>                                 
+                        <th>Date</th>                                 
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -41,13 +40,12 @@
                             <td><?php echo $row['email']; ?></td> 
                             <td><?php echo $row['contact_info']; ?></td>
                             <td><?php echo $row['address']; ?></td> 
-                            <td><?php echo $row['birthdate']; ?></td> 
-                            <td><?php echo $row['gender']; ?></td> 
+                            <td><?php echo $row['created_on']; ?></td>  
                             <td width="150">
                             <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             <a rel="tooltip"  title="Approve" id="e<?php echo $id; ?>" href="#app<?php echo $id; ?>" data-toggle="modal" class="btn btn-info"><i class="fa fa-check"></i></a>
                             <?php include('approve_hires.php'); ?>
-                            <a rel="tooltip"  title="Edit" id="e<?php echo $id; ?>" href="#edit<?php echo $id; ?>" data-toggle="modal" class="btn btn-success"><i class="fa fa-wrench"></i></a>
+                            <a rel="tooltip"  title="Edit" id="e<?php echo $id; ?>" href="#edit<?php echo $id; ?>" data-toggle="modal" class="btn btn-success"><i class="fa fa-eye"></i></a>
                             <?php include('edit_hires.php'); ?>
                             </td>
                         <?php include('toolttip_edit_delete.php'); ?>
@@ -80,4 +78,4 @@
 
         </div>
     </div>
-<!-- <?php include('footer.php') ?> -->s
+<!-- <?php include('footer.php') ?> -->

@@ -24,7 +24,7 @@ if (isset($_POST['edit'])) {
 
     $emp_id=$_POST['id'];
 
-    mysqli_query($conn,"update leaves set status='Approved' where id='$emp_id'")or die(mysqli_error($conn));
+    mysqli_query($conn,"update leaves set hr_status='Approved' where id='$emp_id'")or die(mysqli_error($conn));
     ?>
     <script>
         window.location = "leaves.php";

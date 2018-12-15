@@ -28,7 +28,7 @@
 </div>
 
 <?php
-$conn=mysqli_connect("localhost","root","","e-benta")or die(mysql_error());
+$conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
 if (isset($_POST['edit'])) {
 
     $user_id = $_POST['id'];

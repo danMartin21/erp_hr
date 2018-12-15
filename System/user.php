@@ -25,7 +25,7 @@
                 <tbody>
 
                     <?php
-                    $conn=mysqli_connect("localhost","root","","e-benta")or die(mysql_error());
+                    $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
                     $user_query = mysqli_query($conn,"select * from admin")or die(mysql_error());
                     while ($row = mysqli_fetch_array($user_query)) {
                         $id = $row['id'];

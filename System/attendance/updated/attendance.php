@@ -1,5 +1,5 @@
 <?php
-	if(isset($_POST['employee'])){
+	if(isset($_POST['employee'])){	
 		$output = array('error'=>false);
 
 		include 'conn.php';
@@ -13,7 +13,7 @@
 
 		if($query->num_rows > 0){
 			$row = $query->fetch_assoc();
-			$id = $row['id'];
+			$id = $row['employee_id'];
 
 			$date_now = date('Y-m-d');
 
@@ -58,7 +58,7 @@
 					}
 					else{
 						
-						$sql = "UPDATE attendance SET time_out = NOW() WHERE id = '".$row['uid']."'";
+						$sql = "UPDATE attendance SET time_out = NOW() WHERE id = '".$row['id']."'";
 						if($conn->query($sql)){
 							$output['message'] = 'Time out: '.$row['firstname'].' '.$row['lastname'];
 

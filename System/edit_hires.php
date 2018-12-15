@@ -31,6 +31,12 @@
                 </div>
             </div>
             <div class="control-group">
+                <label class="control-label" for="inputEmail">Age</label>
+                <div class="controls">
+                    <input type="text" id="inputEmail" name="sdate" value="<?php echo $row['age']; ?>" required>
+                </div>
+            </div>
+            <div class="control-group">
                 <label class="control-label" for="inputEmail">Address</label>
                 <div class="controls">
                     <input type="text" id="inputEmail" name="sdate" value="<?php echo $row['address']; ?>" required>

@@ -27,9 +27,8 @@
         <script type="text/javascript" src="js/datepicker.js"></script>
         <link href="css/datepicker.css" rel="stylesheet" type="text/css" />
 
+
         
-
-
     </head>
     <?php include('dbcon.php'); ?>
 <body>

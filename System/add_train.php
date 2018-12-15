@@ -24,19 +24,19 @@
             <div class="control-group">
                 <label class="control-label" for="inputEmail">Start Date</label>
                 <div class="controls">
-                    <input type="date" name="sd" id="inputEmail" required>
+                    <input type="date" name="sd" id="sDate" required>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="inputEmail">End Date</label>
                 <div class="controls">
-                    <input type="date" name="ed" id="inputEmail"  required>
+                    <input type="date" name="ed" id="eDate"  required>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="inputEmail">Start Time</label>
                 <div class="controls">
-                    <input type="time" name="sti" id="inputEmail" placeholder="Categories..." required>
+                    <input type="time" name="sti"  placeholder="Categories..." required>
                 </div>
             </div>
             <div class="control-group">
@@ -75,3 +75,23 @@ if (isset($_POST['ad'])) {
     <?php
 }
 ?> 
+
+<script type="text/javascript">
+        
+        $(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var minDate= year + '-' + month + '-' + day;
+    
+    $('#eDate').attr('min', minDate);
+    $('#sDate').attr('min', minDate);
+});
+    </script>

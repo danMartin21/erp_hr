@@ -12,7 +12,6 @@
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong><i class="fa fa-book"></i>&nbsp;Leaves Table</strong>
             </div>
-            <?php include('add_leaves.php');  ?>
             <table cellpadding="0" cellspacing="0" border="0" class="table  table-bordered" id="example">
 
                 <thead>
@@ -20,7 +19,9 @@
                         <th>Employee ID</th>
                         <th>Start Date</th>
                         <th>End Date</th>
-                        <th>Status</th>                            
+                        <th>Reason</th>
+                        <th>HR Supervisor Approval</th>
+                        <th>Head HR Approval</th>                            
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -28,7 +29,7 @@
 
                     <?php
                     $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
-                    $lev_query = mysqli_query($conn,"select * from leaves")or die(mysql_error());
+                    $lev_query = mysqli_query($conn,"select * from leaves where dep_status='Approved' ")or die(mysql_error());
                     while ($row_lev = mysqli_fetch_array($lev_query)) {
                         $id = $row_lev['id'];
                         $emp_id = $row_lev['employee_id'];
@@ -40,7 +41,9 @@
                             <td><?php echo $row_lev['employee_id']; ?></td>
                             <td><?php echo $row_lev['date_start']; ?></td>
                             <td><?php echo $row_lev['date_end']; ?></td>
-                            <td><?php echo $row_lev['status']; ?></td>
+                            <td><?php echo $row_lev['reason']; ?></td>
+                            <td><?php echo $row_lev['hr_status'];?></td>
+                            <td><?php echo $row_lev['headhr_status']?></td>
                             <td width="100">
                                 <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 <a rel="tooltip"  title="Approve" id="e<?php echo $id; ?>" href="#approv<?php echo $id; ?>" data-toggle="modal" class="btn btn-info"><i class="fa fa-check"></i></a>

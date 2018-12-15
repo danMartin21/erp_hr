@@ -31,26 +31,12 @@
 
                     <?php
                     $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
-                    $user_query = mysqli_query($conn,"select * from employees where NOT employee_id=' ' ")or die(mysql_error());
+                    $user_query = mysqli_query($conn,"select * from employees where NOT status=' ' ")or die(mysql_error());
                     while ($row = mysqli_fetch_array($user_query)) {
                         $id = $row['id'];
                         ?>
                         <tr class="del<?php echo $id ?>">
-                            <td><!-- <?php
-                            if ($row['image']=="") {
-                                echo "
-                                <img src='img/profile 1.png' alt='Profile Picture' style='width:50px; height:50px;'>
-                                ";
-                            }else{
-                                echo "
-                                <img src='img/".$row['image']."' style='width:50px; height:50px;'>
-                                ";
-
-                            }
-
-                            ?> -->
-                                 <?php echo $row['firstname']." ".$row['lastname'];; ?>
-                            </td>
+                            <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
                             <td><?php echo $row['position_id']; ?></td>
                             <td><?php echo $row['email']; ?></td> 
                             <td><?php echo $row['contact_info']; ?></td>
