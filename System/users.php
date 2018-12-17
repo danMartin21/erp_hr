@@ -32,7 +32,6 @@
                     <tbody>
 
                         <?php
-                        $conn=mysqli_connect("localhost","root","","database")or die(mysql_error());
                         $user_query = mysqli_query("select * from users")or die(mysql_error());
                         while ($row = mysqli_fetch_array($user_query)) {
                             $id = $row['user_id'];

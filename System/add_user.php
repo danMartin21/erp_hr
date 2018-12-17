@@ -28,7 +28,6 @@
 </div>
 
 <?php
-$conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];

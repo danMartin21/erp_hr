@@ -29,8 +29,7 @@
                 <tbody>
 
                     <?php
-                    $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
-                    $user_query = mysqli_query($conn,"select * from employees where employee_id=' ' ")or die(mysql_error());
+                    $user_query = mysqli_query($conn,"select * from employee where employee_id=' ' ")or die(mysql_error());
                     while ($row = mysqli_fetch_array($user_query)) {
                         $id=$row['id'];
                         ?>

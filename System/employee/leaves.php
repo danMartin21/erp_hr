@@ -2,7 +2,7 @@
 <?php include('session.php'); ?>
 <?php include('navbar_dasboard.php') ?>
 
-    <div class="row">	
+    <div class="row">   
         <div class="span2">
             <?php include('sidebar.php'); ?>
         </div>
@@ -12,7 +12,7 @@
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong><i class="fa fa-book"></i>&nbsp;Leaves Table</strong>
             </div>
-            <?php include('add_leaves.php');  ?>
+            <?php include('add_leaves.php'); ?>
             <table cellpadding="0" cellspacing="0" border="0" class="table  table-bordered" id="example">
 
                 <thead>
@@ -21,38 +21,39 @@
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Reason</th>
-                        <th>Status</th>                            
+                        <th>Department Approval</th>
+                        <th>Hr Supervisor Approval</th>
+                        <th>Head HR Approval</th>                            
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     <?php
-                    $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
 
-                    $emp_q = mysqli_query($conn,"select * from employees where id='$session_id' ")or die(mysql_error());
-                    $qrow = mysqli_fetch_array($emp_q);
-                    $emp=$qrow['employee_id'];
+                    $emp_query = mysqli_query($conn,"select * from employee where id = $session_id")or die(mysql_error());
+                    $row_emp = mysqli_fetch_array($emp_query);
+                    $emp=$row_emp['employee_id'];
 
-                    $lev_query = mysqli_query($conn,"select * from leaves where employee_id='$emp' ")or die(mysql_error());
+                    $lev_query = mysqli_query($conn,"select * from leaves where employee_id = '$emp' ")or die(mysql_error());
                     while ($row_lev = mysqli_fetch_array($lev_query)) {
                         $id = $row_lev['id'];
                         $emp_id = $row_lev['employee_id'];
 
-                        $member_query = mysqli_query($conn,"select * from employees where employee_id = '$emp_id'")or die(mysql_error());
-                        $member_row = mysqli_fetch_array($member_query);
                         ?>
                         <tr class="del<?php echo $id ?>">
                             <td><?php echo $row_lev['employee_id']; ?></td>
                             <td><?php echo $row_lev['date_start']; ?></td>
                             <td><?php echo $row_lev['date_end']; ?></td>
-                            <td><?php echo $row_lev['reason'];?></td>
+                            <td><?php echo $row_lev['reason']?></td>
+                            <td><?php echo $row_lev['dep_status']; ?></td>
+                            <td><?php echo $row_lev['hr_status']; ?></td>
                             <td><?php echo $row_lev['headhr_status']; ?></td>
                             <td width="100">
                                 <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
-<?php } ?>
+                    <?php } ?>
 
                 </tbody>
             </table>

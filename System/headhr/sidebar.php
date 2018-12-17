@@ -30,6 +30,7 @@
     </li>
     <li><a href="leaves.php" style="color: black;"><i class="fa fa-book"></i>&nbsp;Leaves</a></li>
     <li><a href="training.php" style="color: black;"><i class="fa fa-thumbs-up"></i>&nbsp;Training</a></li>
+    <li><a href="request.php" style="color: black;"><i class="fa fa-wrench"></i>&nbsp;Request for Eguipment & Tools</a></li>
     <li><a href="user.php" style="color: black;"><i class="fa fa fa-user-secret"></i>&nbsp;User Accounts</a></li>
 </ul>
 </div>

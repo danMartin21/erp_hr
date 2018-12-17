@@ -19,7 +19,6 @@
 </div>
 
 <?php
-$conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
 if (isset($_POST['edit'])) {
 
     $id=$_POST['id'];

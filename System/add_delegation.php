@@ -50,7 +50,6 @@
 </div>
 
 <?php
-$conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
 if (isset($_POST['dele'])) {
     $emp_id = $_POST['emp_id'];
     $type=$_POST['type'];

@@ -29,14 +29,16 @@
                 <tbody>
 
                     <?php
-                    $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
-                    $lev_query = mysqli_query($conn,"select * from leaves")or die(mysql_error());
+
+                    $dep_query = mysqli_query($conn,"select * from department where id = $session_id  ")or die(mysql_error());
+                    $row_dep = mysqli_fetch_array($dep_query);
+                    $dep=$row_dep['dep'];
+
+                    $lev_query = mysqli_query($conn,"select * from leaves where department = '$dep' ")or die(mysql_error());
                     while ($row_lev = mysqli_fetch_array($lev_query)) {
                         $id = $row_lev['id'];
                         $emp_id = $row_lev['employee_id'];
 
-                        $member_query = mysqli_query($conn,"select * from employees where employee_id = '$emp_id'")or die(mysql_error());
-                        $member_row = mysqli_fetch_array($member_query);
                         ?>
                         <tr class="del<?php echo $id ?>">
                             <td><?php echo $row_lev['employee_id']; ?></td>
@@ -52,7 +54,7 @@
                             <?php include('approve_leave.php'); ?>
                             </td>
                         </tr>
-<?php } ?>
+                    <?php } ?>
 
                 </tbody>
             </table>

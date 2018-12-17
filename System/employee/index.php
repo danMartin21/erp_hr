@@ -19,12 +19,11 @@
 </div>
 
 <?php
-$conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
 if (isset($_POST['submit'])) {
     session_start();
     $user = $_POST['user'];
     $pwd = $_POST['pwd'];
-    $query = "SELECT * FROM employees WHERE employee_id='$user' AND password='$pwd'";
+    $query = "SELECT * FROM employee WHERE employee_id='$user' AND password='$pwd'";
     $result = mysqli_query($conn,$query)or die(mysql_error());
     $num_row = mysqli_num_rows($result);
     $row = mysqli_fetch_array($result);

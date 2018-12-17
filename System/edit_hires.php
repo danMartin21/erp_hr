@@ -5,7 +5,6 @@
             <div class="control-group">
                 <center>
                 <?php
-                    $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
                     $q = mysqli_query($conn,"SELECT * from employees where id='$id' ")or die(mysql_error());
                     while ($row = mysqli_fetch_assoc($q)){
                         if ($row['photo'] == "") {

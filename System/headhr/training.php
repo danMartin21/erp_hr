@@ -18,6 +18,7 @@
                     <tr>
 
                         <th><center>Employee ID</center></th>
+                        <th><center>Department</center></th>
                         <th><center>Location for Training</center></th>
                         <th><center>Start Date</center></th>
                         <th><center>End Date</center></th>
@@ -29,13 +30,13 @@
                 <tbody>
 
                     <?php
-                    $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
                     $train_query = mysqli_query($conn,"select * from training")or die(mysql_error());
                     while ($row_train = mysqli_fetch_array($train_query)) {
                         $id = $row_train['train_id'];
                         ?>
                         <tr class="del<?php echo $id ?>">
                             <td><?php echo $row_train['employee_id']; ?></td>
+                            <td><?php echo $row_train['department']; ?></td>
                             <td><?php echo $row_train['training_location']; ?></td>
                             <td><?php echo $row_train['start_date']; ?></td>
                             <td><?php echo $row_train['end_date']; ?></td>

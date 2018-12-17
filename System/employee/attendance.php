@@ -26,8 +26,7 @@
                 <tbody>
 
                     <?php
-                    $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
-                    $emp_q = mysqli_query($conn,"select * from employees where id='$session_id' ")or die(mysql_error());
+                    $emp_q = mysqli_query($conn,"select * from employee where id='$session_id' ")or die(mysql_error());
                     $qrow = mysqli_fetch_array($emp_q);
                     $emp=$qrow['employee_id']; 
 
@@ -38,7 +37,6 @@
                         $time_in = $row['time_in'];
                         $time_out=$row['time_out'];
                         $date=$row['date'];
-                        /* member query  */
                         ?>
 
                         <tr class="del<?php echo $id ?>">

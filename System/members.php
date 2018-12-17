@@ -17,12 +17,14 @@
 
                 <thead>
                     <tr>
+                        <th>Employee ID</th>
                         <th>Name</th>
                         <th>Position</th>                                 
                         <th>Email</th>                                 
                         <th>Contact</th> 
                         <th>Address</th>                                
-                        <th>Birthday</th>                                 
+                        <th>Birthday</th>
+                        <th>Age</th>                                
                         <th>Gender</th>                                 
                         <th>Action</th>
                     </tr>
@@ -30,18 +32,23 @@
                 <tbody>
 
                     <?php
-                    $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
-                    $user_query = mysqli_query($conn,"select * from employees where NOT status=' ' ")or die(mysql_error());
+                    $user_query = mysqli_query($conn,"select * from employee where NOT del_status=' ' ")or die(mysql_error());
                     while ($row = mysqli_fetch_array($user_query)) {
                         $id = $row['id'];
+
+                        $birthday = new DateTime($row['birthdate']);
+                        $currentDate = new DateTime('now');
+                        $interval = $birthday->diff($currentDate);
                         ?>
                         <tr class="del<?php echo $id ?>">
+                            <td><?php echo $row['employee_id'];?></td>
                             <td><?php echo $row['firstname']." ".$row['lastname']; ?></td>
                             <td><?php echo $row['position_id']; ?></td>
                             <td><?php echo $row['email']; ?></td> 
                             <td><?php echo $row['contact_info']; ?></td>
                             <td><?php echo $row['address']; ?></td> 
                             <td><?php echo $row['birthdate']; ?></td> 
+                            <td><?php echo $row['age']+$interval->format('%y'); ?></td> 
                             <td><?php echo $row['gender']; ?></td> 
                             <td width="100">
                                 <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>

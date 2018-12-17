@@ -1,10 +1,10 @@
+<?php include('dbcon.php'); ?>
 <div class="navbar">
     <div class="navbar-inner">
         <div class="pull-right">
             <ul class="nav">
                 <li><a href="#"><div class="icon_size"><i class="icon-user icon-large"></i>&nbsp;&nbsp;
                 <?php
-                  $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysqli_error());
                   $q = mysqli_query($conn,"SELECT * from admin where id='$session_id'")or die(mysqli_error());
                   while ($row = mysqli_fetch_assoc($q)){
                       // $img="<img class='js-tilt' src='img/".$row['image']."' alt='Profile Picture' style='width:20px; height:20px; border-radius: 50%'>";

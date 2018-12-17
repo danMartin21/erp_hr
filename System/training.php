@@ -30,10 +30,20 @@
                 <tbody>
 
                     <?php
-                    $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
                     $train_query = mysqli_query($conn,"select * from training")or die(mysql_error());
                     while ($row_train = mysqli_fetch_array($train_query)) {
                         $id = $row_train['train_id'];
+                        $emp = $row_train['employee_id'];
+
+                        $date1=date_create($row_train['start_date']);
+                        $date2=date_create($row_train['end_date']);
+                        $diff=date_diff($date1,$date2);
+
+                        $emp_query = mysqli_query($conn,"select * from attendance where employee_id = '$emp' ")or die(mysql_error());
+                        $row_emp = mysqli_fetch_array($emp_query);
+                        $date1=date_create($row_emp['date']);
+                        $diff=date_diff($date1,$date2);
+                        
                         ?>
                         <tr class="del<?php echo $id ?>">
                             <td><?php echo $row_train['employee_id']; ?></td>
@@ -41,6 +51,7 @@
                             <td><?php echo $row_train['start_date']; ?></td>
                             <td><?php echo $row_train['end_date']; ?></td>
                             <td><?php echo $row_train['start_time']."-".$row_train['end_time']; ?></td>
+                            <td><?php echo $diff->format("%a")." "."out of"." ".$diff->format("%a"); ?></td>
                             <td><?php echo $row_train['status'];?></td>
                             <td width="200">
                                 <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>

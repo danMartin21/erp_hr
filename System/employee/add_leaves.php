@@ -13,8 +13,7 @@
                 <label class="control-label" for="inputEmail">Employee ID</label>
                 <div class="controls">
                     <?php
-
-                    $emp_q = mysqli_query($conn,"select * from employees where id='$session_id' ")or die(mysql_error());
+                    $emp_q = mysqli_query($conn,"select * from employee where id='$session_id' ")or die(mysql_error());
                     $qrow = mysqli_fetch_array($emp_q);
                     $emp=$qrow['employee_id'];
 
@@ -53,14 +52,17 @@
 </div>
 
 <?php
-$conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
 if (isset($_POST['ad'])) {
     $emp_id=$_POST['emp_id'];
+    $emp_query = mysqli_query($conn,"select * from employee where employee_id='$emp_id' ")or die(mysql_error());
+    $query_row = mysqli_fetch_array($emp_query);
+    $dep = $query_row['department'];
     $sd=$_POST['sd'];
     $ed=$_POST['ed'];
     $des=$_POST['des'];
 
-    $q = "SELECT * FROM employees WHERE employee_id='$emp_id' ";
+
+    $q = "SELECT * FROM employee WHERE employee_id='$emp_id' ";
     $res = mysqli_query($conn,$q)or die(mysql_error());
     $num_row = mysqli_num_rows($res);
     $row = mysqli_fetch_array($res);
@@ -69,7 +71,7 @@ if (isset($_POST['ad'])) {
     ?>
     <script>alert('Leave successfully save!!'); window.location='leaves.php'</script>;
     <?php
-    mysqli_query($conn,"insert into leaves (employee_id,date_start,date_end,reason) values('$emp_id','$sd','$ed','$des')")or die(mysqli_error($conn));
+    mysqli_query($conn,"insert into leaves (employee_id,date_start,date_end,reason,department) values('$emp_id','$sd','$ed','$des','$dep')")or die(mysqli_error($conn));
     }
     else{ ?>
     <script>alert('Employee ID Does Not Exist!!'); window.location='leaves.php'</script>;

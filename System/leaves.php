@@ -28,13 +28,12 @@
                 <tbody>
 
                     <?php
-                    $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
                     $lev_query = mysqli_query($conn,"select * from leaves where dep_status='Approved' ")or die(mysql_error());
                     while ($row_lev = mysqli_fetch_array($lev_query)) {
                         $id = $row_lev['id'];
                         $emp_id = $row_lev['employee_id'];
 
-                        $member_query = mysqli_query($conn,"select * from employees where employee_id = '$emp_id'")or die(mysql_error());
+                        $member_query = mysqli_query($conn,"select * from employee where employee_id = '$emp_id'")or die(mysql_error());
                         $member_row = mysqli_fetch_array($member_query);
                         ?>
                         <tr class="del<?php echo $id ?>">

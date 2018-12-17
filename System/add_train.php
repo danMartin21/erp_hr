@@ -58,16 +58,18 @@
 </div>
 
 <?php
-$conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
 if (isset($_POST['ad'])) {
     $emp_id = $_POST['emp_id'];
+    $emp_query = mysqli_query($conn,"select * from employee where employee_id= '$emp_id' ")or die(mysql_error());
+    $row_emp = mysqli_fetch_array($emp_query);
     $lo = $_POST['lo'];
     $sd = $_POST['sd'];
     $ed = $_POST['ed'];
     $sti = $_POST['sti'];
     $eti = $_POST['eti'];
+    $dep = $row_emp['department'];
 
-    mysqli_query($conn,"insert into training (employee_id,training_location,start_date,end_date,start_time,end_time) values('$emp_id','$lo','$sd','$ed','$sti','$eti')")or die(mysqli_error($conn));
+    mysqli_query($conn,"insert into training (employee_id,department,training_location,start_date,end_date,start_time,end_time) values('$emp_id','$dep','$lo','$sd','$ed','$sti','$eti')")or die(mysqli_error($conn));
     ?>
     <script>
         window.location = "training.php";

@@ -19,7 +19,6 @@
 </div>
 
 <?php
-$conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
 if (isset($_POST['submit'])) {
     session_start();
     $user = $_POST['user'];

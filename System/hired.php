@@ -30,8 +30,7 @@
                 <tbody>
 
                     <?php
-                    $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
-                    $user_query = mysqli_query($conn,"select * from employees where status=' ' AND NOT employee_id = ' ' ")or die(mysql_error());
+                    $user_query = mysqli_query($conn,"select * from employee where del_status = ' ' AND NOT employee_id = ' ' ")or die(mysql_error());
                     while ($row = mysqli_fetch_array($user_query)) {
                         $id = $row['id'];
                         ?>
@@ -41,7 +40,7 @@
                             <td><?php echo $row['email']; ?></td> 
                             <td><?php echo $row['contact_info']; ?></td>
                             <td><?php echo $row['address']; ?></td> 
-                            <td><?php echo $row['birthdate']; ?></td> 
+                            <td><?php echo $row['birthday']; ?></td> 
                             <td><?php echo $row['gender']; ?></td> 
                             <td width="100">
                                 <a rel="tooltip"  title="Delete" id="<?php echo $id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>

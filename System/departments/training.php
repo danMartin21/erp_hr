@@ -30,8 +30,11 @@
                 <tbody>
 
                     <?php
-                    $conn=mysqli_connect("localhost","root","","hrm_erp")or die(mysql_error());
-                    $train_query = mysqli_query($conn,"select * from training")or die(mysql_error());
+                    $dep_query = mysqli_query($conn,"select * from department where id = $session_id  ")or die(mysql_error());
+                    $row_dep = mysqli_fetch_array($dep_query);
+                    $dep=$row_dep['dep'];
+
+                    $train_query = mysqli_query($conn,"select * from training where department= '$dep' ")or die(mysql_error());
                     while ($row_train = mysqli_fetch_array($train_query)) {
                         $id = $row_train['train_id'];
                         ?>

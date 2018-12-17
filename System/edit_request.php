@@ -1,35 +1,29 @@
 <div id="edit<?php echo $id; ?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-body">
-        <div class="alert alert-info" style="background-color: rgb(15, 15, 87);"><strong>Edit Training</strong></div>
+        <div class="alert alert-info" style="background-color: rgb(15, 15, 87);"><strong>Edit Request</strong></div>
         <form class="form-horizontal" method="post">
             <div class="control-group">
-                <label class="control-label" for="inputEmail">Training Location</label>
+                <label class="control-label" for="inputEmail">Item</label>
                 <div class="controls">
-                    <input type="text" id="inputEmail" name="edit_lo" value="<?php echo $row_train['training_location']; ?>" required>
+                    <input type="text" id="inputEmail" name="edit_lo" value="<?php echo $row_req['name']; ?>" required>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="inputEmail">Start Date</label>
+                <label class="control-label" for="inputEmail">Quantity</label>
                 <div class="controls">
-                    <input type="date" id="inputEmail" name="edit_sdate" value="<?php echo $row_train['start_date']; ?>" required>
+                    <input type="number" id="inputEmail" name="edit_sdate" value="<?php echo $row_req['quantity']; ?>" required>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="inputEmail">End Date</label>
+                <label class="control-label" for="inputEmail">Description</label>
                 <div class="controls">
-                    <input type="date" id="inputEmail" name="edit_edate" value="<?php echo $row_train['end_date']; ?>" required>
+                    <input type="text" id="inputEmail" name="edit_edate" value="<?php echo $row_req['description']; ?>" required>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="inputEmail">Start Time</label>
+                <label class="control-label" for="inputEmail">Price</label>
                 <div class="controls">
-                    <input type="time" id="inputEmail" name="edit_stime" value="<?php echo $row_train['start_time']; ?>" required>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="inputEmail">End Time</label>
-                <div class="controls">
-                    <input type="time" id="inputEmail" name="edit_etime" value="<?php echo $row_train['end_time']; ?>" required>
+                    <input type="number" id="inputEmail" name="edit_stime" value="<?php echo $row_req['price']; ?>" required>
                 </div>
             </div>
             <div class="control-group">
